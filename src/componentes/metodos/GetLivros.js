@@ -26,7 +26,7 @@ function GetLivros(){
                 {livros.map((livro) =>(
                         <Col  className="d-flex flex-wrap g-3">
                             <div>
-                                <img className="img-fluid img-modal" src="./../imagens/capa1.jpg" alt=""/>
+                                <img className="img-fluid img-modal" src="./../imagens/img-primeiras_tags.jpg" alt=""/>
                                 <Link to={livro.caminho}>{livro.titulo}</Link>
                                 <p>
                                     {livro.paginas} páginas
