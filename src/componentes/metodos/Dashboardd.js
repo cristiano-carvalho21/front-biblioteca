@@ -75,7 +75,7 @@ function Dashboard()
         <div>
             <Container className="d-flex flex-column ms-auto">
                 <h1>Dashboard</h1>
-                <Table striped bordered hover>
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th className="text-center campos-aluno">#</th>

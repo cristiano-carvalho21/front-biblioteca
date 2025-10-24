@@ -33,16 +33,16 @@ function Register()
                         <h1 className="mt-5 mb-5">CADASTRO</h1>
                         <Form onSubmit={handRegister} >
                             <FloatingLabel controlId="userName" label="Insira o seu nome" className="bordas">
-                                <Form.Control type="text" aria-label="nome do usuario" value={nome} onChange={(e) => setNome(e.target.value)}/>
+                                <Form.Control type="text" aria-label="nome do usuario" value={nome} onChange={(e) => setNome(e.target.value)} required/>
                             </FloatingLabel>
                             <InputGroup className="input-group  mt-5 bordas mb-5">
                                 <InputGroup.Text>@</InputGroup.Text>
                                 <FloatingLabel controlId="userEmail" label="Insira o seu endereço de email">
-                                    <Form.Control type="email" aria-label="email do usuario" value={email}  onChange={(e) => setEmail(e.target.value)}/>
+                                    <Form.Control type="email" aria-label="email do usuario" value={email}  onChange={(e) => setEmail(e.target.value)} required/>
                                 </FloatingLabel>
                             </InputGroup>
                             <FloatingLabel controlId="userPassword" label="Insira a sua senha" className="bordas">
-                                <Form.Control type="password" aria-label="password do usuario" value={senha} onChange={(e) => setSenha(e.target.value)}/>
+                                <Form.Control type="password" aria-label="password do usuario" value={senha} onChange={(e) => setSenha(e.target.value)} required/>
                             </FloatingLabel>
 
 

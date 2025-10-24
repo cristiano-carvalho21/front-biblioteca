@@ -38,11 +38,11 @@ function Login()
                         <InputGroup className="input-group mt-5 bordas mb-5">
                             <InputGroup.Text>@</InputGroup.Text>
                             <FloatingLabel controlId="userEmail" label="Insira o seu endereço de email" >
-                                <Form.Control type="email" aria-label="email do usuario" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                                <Form.Control type="email" aria-label="email do usuario" value={email} onChange={(e) => setEmail(e.target.value)}   required/>
                             </FloatingLabel>
                         </InputGroup>
                         <FloatingLabel controlId="userPassword" label="Insira a sua senha" className="bordas mb-5">
-                            <Form.Control type="password" aria-label="password do usuario" value={senha} onChange={(e) => setSenha(e.target.value)}/>
+                            <Form.Control type="password" aria-label="password do usuario" value={senha} onChange={(e) => setSenha(e.target.value)}   required/>
                         </FloatingLabel>
                         <Button type="submit" className="btn-add mb-3 center w-50">Login</Button>
                     </Form>
