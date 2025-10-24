@@ -1,0 +1,25 @@
+.jumbotron
+{
+    
+    color: black;
+    border-radius: 30px;
+    padding: 10px;
+    padding-bottom: 30px;
+}
+
+.carousel_img_wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  overflow: hidden;
+}
+
+.carousel_img_wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+

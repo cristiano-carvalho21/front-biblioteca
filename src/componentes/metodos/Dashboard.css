@@ -1,0 +1,6 @@
+.table-striped-custom tbody tr:nth-child(odd){
+    background-color: #007acc !important;
+}
+.table-striped-custom tbody tr:nth-child(even){
+    background-color: #f8f9fa !important;
+}

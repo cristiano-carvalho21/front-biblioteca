@@ -1,0 +1,42 @@
+.header-container{
+    background-color: #003366 !important;
+    color: white !important;
+}
+.icon_livros
+{
+    margin-left: 5px !important;
+    color: /*#66ccff*/ rgb(199, 209, 241) !important;
+    font-size: 30px !important;
+}
+.guides
+{
+    font-weight:600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    z-index: 10;
+    transition:background-color 0.3s ease, width 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
+    will-change: background-color, width, color, border-radius;
+    width: 155px;
+    display: flex;
+    text-align: center;
+    padding: 5px 10px;
+    justify-content: center;
+    color: white;
+}
+.guides:hover
+{
+    width: 155px;
+    border-radius: 10px;
+    gap: 5px;
+    display: flex;
+    text-align: center;
+    padding: 5px 10px;
+    justify-content: center;
+    font-weight: bold;
+    color: #66ccff !important;
+    transition: 0.3s ease-in-out;
+}
+
+.guides:focus{
+    color: #66ccff !important;
+}
