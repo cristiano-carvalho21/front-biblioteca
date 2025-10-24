@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, FloatingLabel, InputGroup, Button, Container, Row, Col } from "react-bootstrap";
-import axios from "axios";
+import api from "../Api";
 import { Link } from "react-router-dom";
 
 function Register()
@@ -16,7 +16,7 @@ function Register()
         const handRegister = async (e) => {
             e.preventDefault();
             try {
-                await axios.post('http://localhost:8000/api/register', {email,password: senha,nome});
+                await api.post('http://localhost:8000/api/register', {email,password: senha,nome});
                 alert('Cadastro realiado com sucesso');
                 navigate('/login');
             } catch (error) {

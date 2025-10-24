@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, FloatingLabel, InputGroup, Button, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import api from "../Api";
 
 function Login()
 {
@@ -14,7 +14,7 @@ function Login()
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:8000/api/login', {email,password: senha});
+            const res = await api.post('http://localhost:8000/api/login', {email,password: senha});
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('categoria', res.data.categoria);
             localStorage.setItem('nome', res.data.nome);

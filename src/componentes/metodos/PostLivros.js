@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Form, FloatingLabel, Button, Container, Row, Col } from "react-bootstrap";
-import axios from "axios";
+import api from "../Api";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -17,7 +17,7 @@ function PostLivros()
     const handRegister = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:8000/api/livros/cadastro',{titulo,autor,paginas,editora,caminho});
+            await api.post('http://localhost:8000/api/livros/cadastro',{titulo,autor,paginas,editora,caminho});
             alert('Livro cadastrado com sucesso');
             navigate('/dashboard');
         } catch (error) {

@@ -1,7 +1,7 @@
 import "./Dashboard.css";
 import { Container, Button, Table, Modal, Form, FloatingLabel } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../Api";
 import { Navigate } from "react-router-dom";
 
 
@@ -17,7 +17,7 @@ function Dashboard()
 
 
     useEffect(() =>{
-        axios.get('http://localhost:8000/api/livros')
+        api.get('http://localhost:8000/api/livros')
         .then(res => setLivros(res.data))
         .catch(error => console.error('Erro:', error));
     }, []);
@@ -35,7 +35,7 @@ function Dashboard()
 
     const salvarEdicao = async () => {
         try {
-            await axios.put(`http://localhost:8000/api/livros/${editando.id}`, editando);
+            await api.put(`http://localhost:8000/api/livros/${editando.id}`, editando);
             setShowModalEdit(false);
             alert('Dados Editados com sucesso');
             <Navigate to="/livrosdisponiveis" />
@@ -56,7 +56,7 @@ function Dashboard()
     const excluirLivro = async () => {
         try {
             console.log('Livro a excluir com o id: ',livroSelecionado.id);
-            await axios.delete(`http://localhost:8000/api/livros/${livroSelecionado.id}`);
+            await api.delete(`http://localhost:8000/api/livros/${livroSelecionado.id}`);
             alert('Livro excluído com sucesso');
             setShowModalDelete(false);
             <Navigate to="/livrosdisponiveis" />

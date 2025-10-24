@@ -2,7 +2,7 @@ import { Container, FloatingLabel, InputGroup, Form, Button, Row, Col} from "rea
 //import styles from "./LivrosDisponiveis.module.css";
 import { FiSearch } from "react-icons/fi";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../Api";
 import { Link } from "react-router-dom";
 
 function LivrosDisponiveis()
@@ -13,7 +13,7 @@ function LivrosDisponiveis()
     useEffect(() => {
         const fetchDados = async() => {
             try {
-                const res = await axios.get('http://localhost:8000/api/livros');
+                const res = await api.get('http://localhost:8000/api/livros');
                 setLivros(res.data);
     
             } catch (error) {

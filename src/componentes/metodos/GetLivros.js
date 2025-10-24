@@ -1,6 +1,6 @@
 import { Container,Row, Col, Form} from "react-bootstrap";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../Api";
 import { Link } from "react-router-dom";
 
 function GetLivros(){
@@ -10,7 +10,7 @@ function GetLivros(){
     useEffect(() => {
         const fetchDados = async() => {
             try {
-                const res = await axios.get('http://localhost:8000/api/livros');
+                const res = await api.get('http://localhost:8000/api/livros');
                 setLivros(res.data);
                 
             } catch (error) {
