@@ -16,7 +16,7 @@ function Register()
         const handRegister = async (e) => {
             e.preventDefault();
             try {
-                await api.post('http://localhost:8000/api/register', {email,password: senha,nome});
+                await api.post('/api/register', {email,password: senha,nome});
                 alert('Cadastro realiado com sucesso');
                 navigate('/login');
             } catch (error) {

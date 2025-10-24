@@ -13,7 +13,7 @@ function LivrosDisponiveis()
     useEffect(() => {
         const fetchDados = async() => {
             try {
-                const res = await api.get('http://localhost:8000/api/livros');
+                const res = await api.get('/api/livros');
                 setLivros(res.data);
     
             } catch (error) {

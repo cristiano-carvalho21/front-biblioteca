@@ -17,7 +17,7 @@ function PostLivros()
     const handRegister = async (e) => {
         e.preventDefault();
         try {
-            await api.post('http://localhost:8000/api/livros/cadastro',{titulo,autor,paginas,editora,caminho});
+            await api.post('/api/livros/cadastro',{titulo,autor,paginas,editora,caminho});
             alert('Livro cadastrado com sucesso');
             navigate('/dashboard');
         } catch (error) {

@@ -17,7 +17,7 @@ function Dashboard()
 
 
     useEffect(() =>{
-        api.get('http://localhost:8000/api/livros')
+        api.get('/api/livros')
         .then(res => setLivros(res.data))
         .catch(error => console.error('Erro:', error));
     }, []);
@@ -35,7 +35,7 @@ function Dashboard()
 
     const salvarEdicao = async () => {
         try {
-            await api.put(`http://localhost:8000/api/livros/${editando.id}`, editando);
+            await api.put(`/api/livros/${editando.id}`, editando);
             setShowModalEdit(false);
             alert('Dados Editados com sucesso');
             <Navigate to="/livrosdisponiveis" />
@@ -56,7 +56,7 @@ function Dashboard()
     const excluirLivro = async () => {
         try {
             console.log('Livro a excluir com o id: ',livroSelecionado.id);
-            await api.delete(`http://localhost:8000/api/livros/${livroSelecionado.id}`);
+            await api.delete(`/api/livros/${livroSelecionado.id}`);
             alert('Livro excluído com sucesso');
             setShowModalDelete(false);
             <Navigate to="/livrosdisponiveis" />

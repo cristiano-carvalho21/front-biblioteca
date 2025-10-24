@@ -14,7 +14,7 @@ function Login()
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await api.post('http://localhost:8000/api/login', {email,password: senha});
+            const res = await api.post('/api/login', {email,password: senha});
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('categoria', res.data.categoria);
             localStorage.setItem('nome', res.data.nome);
@@ -24,6 +24,7 @@ function Login()
             navigate('/home')
         } catch (error) {
             alert('Falha no Login');
+            console.log('Erro: ',error);
         }
     }
 
