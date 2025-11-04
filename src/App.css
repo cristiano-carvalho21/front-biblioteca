@@ -4,30 +4,39 @@
   box-sizing: border-box !important;
 }
 body{
-   background-color: rgb(199, 209, 241) !important;
+   background-color: var(--cor7) !important;
+}
+:root{
+  --cor1:black;
+  --cor2:white;
+  --cor3:#003366;
+  --cor4:#066fd8;
+  --cor5:#007acc;
+  --cor6:#66ccff;
+  --cor7:rgb(199, 209, 241);
 }
 .header-container{
-    background-color: #003366 !important;
-    color: white !important;
+    background-color: var(--cor3) !important;
+    color: var(--cor2) !important;
 }
 .container-body{
   min-height: 100vh;
 }
 .guide{
-    color: white !important;
+    color: var(--cor2) !important;
 }
 .guide:hover{
-  color: #66ccff !important;
+  color: var(--cor6) !important;
 }
 .guide:focus{
-  color: #66ccff !important;
+  color: var(--cor6) !important;
 }
 .App h1{
-  color: #003366;
+  color: var(--cor3);
   font-weight: 350;
 }
 .App h2{
-  color: #003366;
+  color: var(--cor3);
   font-weight:350;
 }
 .center{
@@ -38,6 +47,7 @@ body{
   margin: auto !important;
   flex-direction: column;
 }
+
 .center-no-text{
   display: flex !important;
   align-items: center !important;
@@ -51,18 +61,28 @@ body{
 }
 .intro{
   background-image: url("./../public/imagens/img1.jpg");
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  min-height: 100vh !important;   
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;   
   width: 100vw !important;
-  background-position: center !important;
+  background-position: center;
+  animation: movimentoFundo 20s infinite linear;
+  z-index: -1;
+  background-attachment: fixed;
   
 }
+@keyframes movimentoFundo{
+  0%{background-position: 0% 0%;}
+  25%{background-position: 100%   0%;}
+  50%{background-position: 100% 100%;}
+  75%{background-position: 0% 100%;}
+  100%{background-position: 0% 0%  ;}
+}
 .intro h1{
-  color: white !important;
+  color: var(--cor2) !important;
 }
 .center p, .link{
-  color: white;
+  color: var(--cor2);
 }
 .tab-pane {
   margin-top: 15px !important;
@@ -80,16 +100,16 @@ body{
   background-color: transparent !important;
 }
 .tabs-custom .nav-link{
-  color:  #003366 !important;
+  color: var(--cor3) !important;
 }
 .tabs-custom .nav-link.active{
-  border-top: 3px solid #066fd8 !important;
-  border-left: 1px solid #066fd8 !important;
-  border-right: 1px solid #066fd8 !important;
+  border-top: 3px solid var(--cor4) !important;
+  border-left: 1px solid var(--cor4) !important;
+  border-right: 1px solid var(--cor4) !important;
   border-bottom:  none !important;
-  background-color: white !important;
+  background-color: var(--cor2) !important;
   width: 100% !important;
-  color:  #003366 !important;
+  color: var(--cor3) !important;
   
 }
 
@@ -98,10 +118,10 @@ body{
   background-color: none !important;
 }
 .card-aluno{
-  background-color:  rgb(199, 209, 241) !important;
+  background-color:  var(--cor7) !important;
 }
 .campos-aluno{
-  color: #003366 !important;
+  color: var(--cor3) !important;
 }
 
 .card-livros{
@@ -114,17 +134,18 @@ body{
 }
 .card-livros h3{
   font-size: 1.3em;
-  color: black !important;
+  color: var(--cor1) !important;
   font-weight: 350 !important;
 }
 .card-livros p{
   margin-top: -5px;
-  color:  black !important;
+  color:  var(--cor1) !important;
 }
 .card-livros .selection{
   margin-top: -30px;
   margin-bottom: 20px;
 }
+
 .modal-body-scrool{
   max-height: 300px;
   overflow-y: auto;
@@ -134,42 +155,51 @@ body{
   height: 120px !important;
 }
 .paragrafos{
-  color: black !important;
+  color: var(--cor1) !important;
   font-weight: 350 !important;
 }
 .bordas{
     border: 1px solid !important;
     border-radius: 5px !important;
-    border-color: #003366 !important;
+    border-color: var(--cor3) !important;
 }
 .pesquisar:hover{
-  background-color: #66ccff !important;
+  background-color: var(--cor6) !important;
 }
 .btn-pesquisar{
-  color: #003366 !important;
+  color: var(--cor3) !important;
 }
 .btn-add:hover{
-  background-color: #003366 !important;
-  color: #66ccff !important;
+  background-color: var(--cor3) !important;
+  color: var(--cor6) !important;
 }
 .btn-add{
-  background-color: #003366 !important;
-  color:  white !important;
+  background-color: var(--cor3) !important;
+  color: var(--cor2) !important;
   font-weight: bold !important;
   border: none !important;
 }
+.btn-add-social{
+  background-color:var(--cor2) !important;
+  color: var(--cor3) !important;
+  font-weight: bold !important;
+  border: none !important;
+}
+.btn-add-social-icones{
+  color:var(--cor3) !important;
+}
 .link{
-  color: #66ccff !important;
+  color: var(--cor6) !important;
 }
 .link:hover{
-  color: white !important;
+  color: var(--cor2) !important;
 }
 .footer{
-  background-color: #007acc !important;
+  background-color: var(--cor5) !important;
   padding: 50px;
   text-align: center;
   font-weight: 400 !important;
-  color: black !important;
+  color: var(--cor1) !important;
 }
 
 

@@ -52,12 +52,11 @@ function LivrosDisponiveis()
                                 ))
                             
                             ):(
-                                    <Col xs={12} sm={6} md={4} lg={3}>
-                                        <div className="card-livros">
-                              
-                                            <p>Nenhum livro disponível</p>
-                                        </div> 
-                                    </Col> 
+                                <Col xs={12} sm={6} md={4} lg={3}>
+                                    <div className="card-livros">
+                                        <p>Nenhum livro disponível</p>
+                                    </div> 
+                                </Col> 
                             )}
                         </Row>
                 </Container>

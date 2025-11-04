@@ -1,9 +1,9 @@
 import "./Dashboard.css";
-import { Container, Button, Table, Modal, Form, FloatingLabel } from "react-bootstrap";
+import { Container, Button, Table, Modal} from "react-bootstrap";
 import { useState, useEffect } from "react";
 import api from "../Api";
-import { Navigate } from "react-router-dom";
-
+import ModalEdit from "./modais/ModalEdit";
+import ModalDelete from "./modais/ModalDelete";
 
 function Dashboard()
 {
@@ -13,8 +13,6 @@ function Dashboard()
     const [dado, setDado] = useState('');
     const [showModalEdit, setShowModalEdit] = useState(false);
     const [showModalDelete, setShowModalDelete] = useState(false);
-
-
 
     useEffect(() =>{
         api.get('/api/livros')
@@ -29,22 +27,7 @@ function Dashboard()
         setShowModalEdit(true);
     }
 
-    const handleChange = (e) => {
-        setEditando({...editando, [e.target.name] : e.target.value});
-    }
-
-    const salvarEdicao = async () => {
-        try {
-            await api.put(`/api/livros/${editando.id}`, editando);
-            setShowModalEdit(false);
-            alert('Dados Editados com sucesso');
-            <Navigate to="/livrosdisponiveis" />
-        } catch (error) {
-            console.error('Erro ao editar os dados dos livros');
-            alert('Erro ao editar os dados dos livros');
-        }
-
-    }
+ 
     const fecharModalEdit = () => setShowModalEdit(false);
     
 
@@ -53,19 +36,7 @@ function Dashboard()
         setDado(livro.titulo);
         setShowModalDelete(true);
     } 
-    const excluirLivro = async () => {
-        try {
-            console.log('Livro a excluir com o id: ',livroSelecionado.id);
-            await api.delete(`/api/livros/${livroSelecionado.id}`);
-            alert('Livro excluído com sucesso');
-            setShowModalDelete(false);
-            <Navigate to="/livrosdisponiveis" />
 
-        } catch (error) {
-            console.error('Erro na exclusão do livro:',error)
-            alert('Falha na exclusão do livro');
-        }
-    }
     
     const fecharModalDelete = () => setShowModalDelete(false);
 
@@ -102,45 +73,9 @@ function Dashboard()
                         ))};
                     </tbody>
                 </Table>
-
-                <Modal show={showModalEdit} onHide={fecharModalEdit}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Editando livro {dado}</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body> 
-                        <Form onSubmit={salvarEdicao}>
-                            <FloatingLabel controlId="dataTitulo" label="Informe o título do livro" className="bordas mb-3">
-                                <Form.Control type="text" name="titulo" aria-label="titulo do livro" value={editando.titulo} onChange={handleChange}/>
-                            </FloatingLabel>
-                            <FloatingLabel controlId="dataAutor" label="Informe o nome do autor" className="bordas mb-3">
-                                <Form.Control type="text" name="autor" aria-label="autor do livro" value={editando.autor} onChange={handleChange}/>
-                            </FloatingLabel>
-                            <FloatingLabel controlId="dataEditora" label="Informe a editora do livro" className="bordas mb-3">
-                                <Form.Control type="text" name="editora" aria-label="editora do livro" value={editando.editora} onChange={handleChange}/>
-                            </FloatingLabel>
-                            <FloatingLabel controlId="dataPaginas" label="Informe a quantidade de páginas do livro" className="bordas mb-3">
-                                <Form.Control type="number" name="paginas" aria-label="numero de paginas do livro" value={editando.paginas} onChange={handleChange}/>
-                            </FloatingLabel>
-                            <Button type="submit" className="btn-success">Editar</Button>
-                        </Form>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button onClick={fecharModalEdit} className="btn-danger">Cancelar</Button>
-                    </Modal.Footer>
-                </Modal>
-
-                <Modal show={showModalDelete} onHide={fecharModalDelete}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Excluindo livro {dado}</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body> 
-                        Tens a certeza que pretendes excluir este livro ?
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button onClick={fecharModalDelete} className="btn-success">Cancelar</Button>
-                        <Button onClick={excluirLivro} className="btn-danger">Deletar</Button>
-                    </Modal.Footer>
-                </Modal>
+                
+                <ModalEdit show={showModalEdit} onHide={fecharModalEdit}/>
+                <ModalDelete show={showModalDelete} onHide={fecharModalDelete} />
 
             </Container>
         </div>

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 import { Form, FloatingLabel, InputGroup, Button, Container, Row, Col } from "react-bootstrap";
 import api from "../Api";
@@ -10,9 +11,11 @@ function Register()
         const [email, setEmail] = useState('');
         const [senha, setSenha] = useState('');
         const[nome, setNome] = useState('');
-        
+        const[tel, setTel] = useState('');
+
         const navigate = useNavigate();
-    
+  
+
         const handRegister = async (e) => {
             e.preventDefault();
             try {
@@ -20,7 +23,7 @@ function Register()
                 alert('Cadastro realiado com sucesso');
                 navigate('/login');
             } catch (error) {
-                alert('Erro ao cadastrar');
+                alert('Erro ao cadastrar, verifique se o email está bem escrito');
                 console.log(error);
             }
         }
@@ -41,10 +44,12 @@ function Register()
                                     <Form.Control type="email" aria-label="email do usuario" value={email}  onChange={(e) => setEmail(e.target.value)} required/>
                                 </FloatingLabel>
                             </InputGroup>
+                            <FloatingLabel controlId="userTel" label="Insira o seu número de telefone" className="bordas mb-5">
+                                <Form.Control type="tel" aria-label="telefone do usuario" value={tel} onChange={(e) => setTel(e.target.value)}/>
+                            </FloatingLabel>
                             <FloatingLabel controlId="userPassword" label="Insira a sua senha" className="bordas">
                                 <Form.Control type="password" aria-label="password do usuario" value={senha} onChange={(e) => setSenha(e.target.value)} required/>
                             </FloatingLabel>
-
 
                             <Button type="submit" className="mt-5 btn-add center w-50">Cadastrar</Button>
                         </Form>
