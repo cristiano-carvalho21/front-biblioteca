@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Container,Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container} from "react-bootstrap";
 import ModalVerifyCode from "./modais/ModalVerifyCode";
 import ModalEmailGoogle from "./modais/ModalEmailGoogle";
 import ModalApple from "./modais/ModalApple";
