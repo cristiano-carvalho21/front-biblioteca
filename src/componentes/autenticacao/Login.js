@@ -9,8 +9,8 @@ import FormLogin from "./FormLogin";
 
 function Login()
 {
-    const [emailSocial, setEmailSocial] = useState('');
-    const [etapa, setEtapa] = useState('');
+    
+    const [etapa] = useState('');
     
 
     const [showModalG, setShowModalG] = useState(false);
