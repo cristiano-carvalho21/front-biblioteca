@@ -8,9 +8,9 @@ import ModalDelete from "./modais/ModalDelete";
 function Dashboard()
 {
     const [livros, setLivros] = useState([]);
-    const [livroSelecionado, setLivroSelecionado] = useState(null);
-    const [editando, setEditando] = useState([]);
-    const [dado, setDado] = useState('');
+    const [setLivroSelecionado] = useState(null);
+    const [setEditando] = useState([]);
+    const [setDado] = useState('');
     const [showModalEdit, setShowModalEdit] = useState(false);
     const [showModalDelete, setShowModalDelete] = useState(false);
 

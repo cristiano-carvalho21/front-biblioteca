@@ -5,13 +5,14 @@ import api from "../../Api";
 
 function ModalDelete({show, onHide})
 {
-    const [livroSelecionado, setLivroSelecionado] = useState(null);
+    const [livroSelecionado] = useState(null);
     const [dado, setDado] = useState('');
-    const [showModalDelete, setShowModalDelete] = useState(false);
+    const [setShowModalDelete] = useState(false);
 
     const excluirLivro = async () => {
         try {
             console.log('Livro a excluir com o id: ',livroSelecionado.id);
+            setDado(livroSelecionado.titulo);
             await api.delete(`/api/livros/${livroSelecionado.id}`);
             alert("Livro excluído com sucesso")
             

@@ -7,7 +7,7 @@ function ModalEdit({show,onHide})
 {
     const [editando, setEditando] = useState([]);
     const [dado, setDado] = useState('');
-    const [showModalEdit, setShowModalEdit] = useState(false);
+    const [setShowModalEdit] = useState(false);
     
     const handleChange = (e) => {
         setEditando({...editando, [e.target.name] : e.target.value});
@@ -16,6 +16,7 @@ function ModalEdit({show,onHide})
     const salvarEdicao = async () => {
         try {
             await api.put(`/api/livros/${editando.id}`, editando);
+            setDado(editando.titulo);
             alert("Dados Editados com sucesso");
             
             setShowModalEdit(false);
