@@ -11,7 +11,7 @@ function Register()
         const [email, setEmail] = useState('');
         const [senha, setSenha] = useState('');
         const[nome, setNome] = useState('');
-        const[tel, setTel] = useState('');
+        
 
         const navigate = useNavigate();
   
@@ -44,9 +44,6 @@ function Register()
                                     <Form.Control type="email" aria-label="email do usuario" value={email}  onChange={(e) => setEmail(e.target.value)} required/>
                                 </FloatingLabel>
                             </InputGroup>
-                            <FloatingLabel controlId="userTel" label="Insira o seu número de telefone" className="bordas mb-5">
-                                <Form.Control type="tel" aria-label="telefone do usuario" value={tel} onChange={(e) => setTel(e.target.value)}/>
-                            </FloatingLabel>
                             <FloatingLabel controlId="userPassword" label="Insira a sua senha" className="bordas">
                                 <Form.Control type="password" aria-label="password do usuario" value={senha} onChange={(e) => setSenha(e.target.value)} required/>
                             </FloatingLabel>

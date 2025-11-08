@@ -45,10 +45,12 @@ function FormLogin({onclickGoogle,onclickApple})
                 <Button type="submit" className="btn-add mb-3 center w-50">Login</Button>
                 <hr/>
             
+                {/*
                     
                 <p className="text-center text-black fw-bold">Ou</p>
                 <Button className="btn-add mb-3 d-flex w-50  center-no-text" onClick={onclickGoogle}> <FaGoogle size={25} className="bi bi-gear-fill"/>  <span className="ms-2">Entrar com o Google</span> </Button>
                 <Button className="btn-add mb-3 d-flex w-50  center-no-text" onClick={onclickApple}> <FaApple size={25} className="bi bi-gear-fill"/>  <span className="ms-2">Entrar com a Apple</span> </Button>
+                */}    
                 
             </Form>
                   <p className="mt-5 ">
