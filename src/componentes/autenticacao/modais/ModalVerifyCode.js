@@ -24,9 +24,9 @@ function ModalVerifyCode({show,onHide,onVerificar})
         }
      };
 
-     const handleVerificarCodigo = async (emailSocial) => {
+     const handleVerificarCodigo = async (e,emailSocial) => {
         
-        
+        e.preventDefault();
         const codigoFinal = codigo.join('');
         onVerificar(codigoFinal);
         const res = await api.post(`/api/verifyCode/${emailSocial}`,{codigoFinal});
@@ -54,10 +54,11 @@ function ModalVerifyCode({show,onHide,onVerificar})
             </Modal.Header>
             <Modal.Body>
                 <p className="text-center">Insira o código de 6 dígitos que enviamos no seu email.</p>
+                
                 <Form onSubmit={handleVerificarCodigo}>
-                    <Row className="justify-content-center">
+                    <Row className="justify-content-center" >
                         {codigo.map((num,i) => (
-                            <Col xs={2} key={i}>
+                            <Col xs={3} key={i}>
                                 <Form.Control type="text" key={i} maxLength={1} value={num} onChange={(e) => handleChange(i, e.target.value)} ref={(el) => (inputsRef.current[i] = el)} className="text-center border-bottom border-dark bg-transparent text-dark fs-4" />
                             </Col>
                         ))}

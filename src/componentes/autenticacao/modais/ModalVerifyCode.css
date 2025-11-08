@@ -6,3 +6,7 @@
     background-color: transparent;
     color: black !important;
 }
+.container-modal{
+    width: 700px !important;
+    margin: auto !important;
+}

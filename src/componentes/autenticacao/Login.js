@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Container,Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ModalVerifyCode from "./modais/ModalVerifyCode";
@@ -8,20 +7,17 @@ import ModalApple from "./modais/ModalApple";
 import FormLogin from "./FormLogin";
 
 
-
 function Login()
 {
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
     const [emailSocial, setEmailSocial] = useState('');
     const [etapa, setEtapa] = useState('');
-    const [codigo, setCodigo] = useState('');
+    
 
     const [showModalG, setShowModalG] = useState(false);
     const [showModalA, setShowModalA] = useState(false);
     
     const [showModalVerifyCode, setShowModalVerifyCode] = useState(false);
-    const navigate = useNavigate();
+    
 
     const abrirModalGoogle = () => {
         setShowModalG(true);
@@ -29,11 +25,7 @@ function Login()
     const abrirModalApple = () => {
         setShowModalA(true);
     }
-    const abrirModalVerifyCode = () => {
-        setShowModalVerifyCode(true);
-        setShowModalA(false);
-        setShowModalG(false);
-    }
+ 
     const VerificarCodigo = (codigo) => {
         console.log('Código digitado: ', codigo)
     }
@@ -44,8 +36,8 @@ function Login()
                 
                 {etapa === 'email' && (
                     <>
-                        <ModalEmailGoogle show={showModalG} onHide={() => setShowModalG(false)} text="Entrando com a sua conta Google" clickContinuar={() => abrirModalVerifyCode(emailSocial)} clickCancelar={() => setShowModalG(false)}/>
-                        <ModalApple show={showModalA} onHide={() => setShowModalA(false)} text="Entrando com a sua conta Apple" clickContinuar={() => abrirModalVerifyCode(emailSocial)} clickCancelar={() => setShowModalA(false)}/>
+                        <ModalEmailGoogle show={showModalG} onHide={() => setShowModalG(false)} text="Entrando com a sua conta Google"  clickCancelar={() => setShowModalG(false)}/>
+                        <ModalApple show={showModalA} onHide={() => setShowModalA(false)} text="Entrando com a sua conta Apple"  clickCancelar={() => setShowModalA(false)}/>
                     </>
                 )}
                 
@@ -53,8 +45,8 @@ function Login()
                      <ModalVerifyCode onVerificar={VerificarCodigo} show={showModalVerifyCode} onHide={() => setShowModalVerifyCode(false)}/>
                 )}
             
-                <ModalEmailGoogle show={showModalG} onHide={() => setShowModalG(false)} text="Entrando com a sua conta Google" clickContinuar={() => abrirModalVerifyCode(emailSocial)} clickCancelar={() => setShowModalG(false)}/>
-                <ModalApple show={showModalA} onHide={() => setShowModalA(false)} text="Entrando com a sua conta Apple" clickContinuar={() => abrirModalVerifyCode(emailSocial)} clickCancelar={() => setShowModalA(false)}/>
+                <ModalEmailGoogle show={showModalG} onHide={() => setShowModalG(false)} text="Entrando com a sua conta Google"  clickCancelar={() => setShowModalG(false)}/>
+                <ModalApple show={showModalA} onHide={() => setShowModalA(false)} text="Entrando com a sua conta Apple"  clickCancelar={() => setShowModalA(false)}/>
                 <ModalVerifyCode onVerificar={VerificarCodigo} show={showModalVerifyCode} onHide={() => setShowModalVerifyCode(false)}/>
                 
                 <FormLogin onclickGoogle={abrirModalGoogle} onclickApple={abrirModalApple}/>

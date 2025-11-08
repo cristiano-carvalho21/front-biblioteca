@@ -4,18 +4,22 @@ import { FcGoogle} from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import api from "../../Api";
 
-function ModalEmailGoogle({text,show,onHide,clickContinuar,clickCancelar})
+function ModalEmailGoogle({text,show,onHide,clickCancelar})
 {
-    
+    const [showModalVerifyCode, setShowModalVerifyCode] = useState(false);
+    const [showModalG, setShowModalG] = useState(false);
     const [emailSocial, setEmailSocial] = useState('');
     const [etapa, setEtapa] = useState('');
     const navigate = useNavigate();
 
- 
 
-        const handleLoginWithGoogle = async (e) => {
+
+    const handleLoginWithGoogle = async (e) => {
+        
         e.preventDefault();
+
         try {
+      
             const token = localStorage.getItem('token');
             if(token){
                 const res = await api.get('/api/loginWithGoogle',{emailSocial});
@@ -25,8 +29,11 @@ function ModalEmailGoogle({text,show,onHide,clickContinuar,clickCancelar})
                 navigate('/home');
             }else{
                 await api.get('/api/loginWithGoogle',{emailSocial});
+                setShowModalVerifyCode(true);
+                setShowModalG(false);
                 setEtapa('codigo');
             }
+            
         } catch (error) {
             console.error('Erro',error);
         }
@@ -46,12 +53,13 @@ function ModalEmailGoogle({text,show,onHide,clickContinuar,clickCancelar})
                             <Form.Control type="email" aria-label="email do usuario" value={emailSocial} onChange={(e) => setEmailSocial(e.target.value)}   required/>
                         </FloatingLabel>
                     </InputGroup>
-                    <Button type="submit" onClick={clickContinuar} className="btn-add">Continuar</Button>
+                    <Button type="submit" className="btn-add">Continuar</Button>
                 </Form>
             </Modal.Body>
             <Modal.Footer className="bg-dark text-white">
                 <Button  className="btn-secondary fw-bold" onClick={clickCancelar}>Cancelar</Button>
             </Modal.Footer>
+            
         </Modal>
     );
 }

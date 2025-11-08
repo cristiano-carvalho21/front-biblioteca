@@ -4,15 +4,18 @@ import { FaApple} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import api from "../../Api";
 
-function ModalApple({text,show,onHide,clickContinuar,clickCancelar})
+function ModalApple({text,show,onHide,clickCancelar})
 {
     const [emailSocial, setEmailSocial] = useState('');
     const [etapa, setEtapa] = useState('');
+    const [showModalA, setShowModalA] = useState(false);
+    const [showModalVerifyCode, setShowModalVerifyCode] = useState(false);
+
     const navigate = useNavigate();
 
-    
     const handleLoginWithApple = async (e) => {
         e.preventDefault();
+
         try {
         const token = localStorage.getItem('token');
         if(token){
@@ -23,6 +26,8 @@ function ModalApple({text,show,onHide,clickContinuar,clickCancelar})
             navigate('/home');
         }else{
                 await api.get('/api/loginWithApple',{emailSocial});
+                setShowModalVerifyCode(true);
+                setShowModalA(false);
         }
         } catch (error) {
             console.error('Erro',error);
@@ -46,12 +51,13 @@ function ModalApple({text,show,onHide,clickContinuar,clickCancelar})
                             <Form.Control type="email" aria-label="email do usuario" value={emailSocial} onChange={(e) => setEmailSocial(e.target.value)}   required/>
                         </FloatingLabel>
                     </InputGroup>
-                    <Button type="submit" onClick={clickContinuar} className="btn-add">Continuar</Button>
+                    <Button type="submit" className="btn-add">Continuar</Button>
                 </Form>
             </Modal.Body>
             <Modal.Footer className="bg-dark text-white">
                 <Button  className="btn-secondary fw-bold" onClick={clickCancelar}>Cancelar</Button>
             </Modal.Footer>
+            
         </Modal>
     );
 }
