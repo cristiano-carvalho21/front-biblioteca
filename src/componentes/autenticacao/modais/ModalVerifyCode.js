@@ -7,7 +7,7 @@ import api from "../../Api";
 function ModalVerifyCode({show,onHide,onVerificar})
 {
      const [codigo, setCodigo] = useState(new Array(6).fill(''));
-     const [etapa, setEtapa] = useState('');
+     
      const inputsRef = useRef([]);
     const navigate = useNavigate();
 
@@ -34,7 +34,7 @@ function ModalVerifyCode({show,onHide,onVerificar})
         if(data.token){
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('email', res.data.email);
-            setEtapa('codigo');
+            
             navigate('/home');
         }else{
             alert('Codigo invalido ou incorreto');

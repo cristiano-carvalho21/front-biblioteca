@@ -7,9 +7,9 @@ import api from "../../Api";
 function ModalApple({text,show,onHide,clickCancelar})
 {
     const [emailSocial, setEmailSocial] = useState('');
-    const [etapa, setEtapa] = useState('');
-    const [showModalA, setShowModalA] = useState(false);
-    const [showModalVerifyCode, setShowModalVerifyCode] = useState(false);
+    
+    const [setShowModalA] = useState(false);
+    const [setShowModalVerifyCode] = useState(false);
 
     const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ function ModalApple({text,show,onHide,clickCancelar})
             const res = await api.get('/api/loginWithApple',{emailSocial});
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('email', res.data.email);
-            setEtapa('email');
+            
             navigate('/home');
         }else{
                 await api.get('/api/loginWithApple',{emailSocial});

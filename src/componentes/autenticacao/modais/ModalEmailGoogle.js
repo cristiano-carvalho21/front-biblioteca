@@ -6,10 +6,10 @@ import api from "../../Api";
 
 function ModalEmailGoogle({text,show,onHide,clickCancelar})
 {
-    const [showModalVerifyCode, setShowModalVerifyCode] = useState(false);
-    const [showModalG, setShowModalG] = useState(false);
+    const [setShowModalVerifyCode] = useState(false);
+    const [setShowModalG] = useState(false);
     const [emailSocial, setEmailSocial] = useState('');
-    const [etapa, setEtapa] = useState('');
+   
     const navigate = useNavigate();
 
 
@@ -25,13 +25,13 @@ function ModalEmailGoogle({text,show,onHide,clickCancelar})
                 const res = await api.get('/api/loginWithGoogle',{emailSocial});
                 localStorage.setItem('token', res.data.token);
                 localStorage.setItem('email', res.data.email);
-                setEtapa('email');
+                
                 navigate('/home');
             }else{
                 await api.get('/api/loginWithGoogle',{emailSocial});
                 setShowModalVerifyCode(true);
                 setShowModalG(false);
-                setEtapa('codigo');
+                
             }
             
         } catch (error) {
