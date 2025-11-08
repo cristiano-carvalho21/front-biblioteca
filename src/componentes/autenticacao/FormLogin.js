@@ -2,6 +2,7 @@ import {Form,FloatingLabel,InputGroup,Button,Row,Col} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FaApple, FaGoogle} from "react-icons/fa";
+import {Link} from "react-router-dom";
 import api from "../Api";
 
 function FormLogin({onclickGoogle,onclickApple})
@@ -50,7 +51,10 @@ function FormLogin({onclickGoogle,onclickApple})
                 <Button className="btn-add mb-3 d-flex w-50  center-no-text" onClick={onclickApple}> <FaApple size={25} className="bi bi-gear-fill"/>  <span className="ms-2">Entrar com a Apple</span> </Button>
                 
             </Form>
-                    
+                  <p className="mt-5 ">
+                      Não possuís uma conta ?
+                      <Link to="/register" className="ms-2 link">Cadastrar-se</Link>  
+                  </p>
             </Col>
         </Row>
     );

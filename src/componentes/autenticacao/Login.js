@@ -50,7 +50,6 @@ function Login()
                 <ModalVerifyCode onVerificar={VerificarCodigo} show={showModalVerifyCode} onHide={() => setShowModalVerifyCode(false)}/>
                 
                 <FormLogin onclickGoogle={abrirModalGoogle} onclickApple={abrirModalApple}/>
-                <Button as={Link} to="/register" className="btn-add mt-3 center w-50">Cadastrar-se</Button>
             </Container>
 
         </div>
